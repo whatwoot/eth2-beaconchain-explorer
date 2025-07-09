@@ -1,6 +1,6 @@
 # Database credentials
 readerDatabase:
-  user: "postgres"
+  user: "posteth"
   name: "db"
   host: "localhost"
   port: "5432"
@@ -9,7 +9,7 @@ readerDatabase:
   maxIdleConns: 10
   ssl: false
 writerDatabase:
-  user: "postgres"
+  user: "posteth"
   name: "db"
   host: "localhost"
   port: "5432"
@@ -37,7 +37,7 @@ frontend:
     host: "0.0.0.0" # Address to listen on
     port: "3333" # Port to listen on
   readerDatabase:
-    user: "postgres"
+    user: "posteth"
     name: "db"
     host: "localhost"
     port: "5432"
@@ -46,7 +46,7 @@ frontend:
     maxIdleConns: 10
     ssl: false
   writerDatabase:
-    user: "postgres"
+    user: "posteth"
     name: "db"
     host: "localhost"
     port: "5432"

@@ -7,7 +7,7 @@ set -e  # Exit on any error
 
 DB_HOST="localhost"
 DB_PORT="5432"
-DB_USER="postgres"
+DB_USER="posteth"
 DB_NAME="db"
 DB_PASSWORD="pass"
 
