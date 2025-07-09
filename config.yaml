@@ -64,7 +64,7 @@ indexer:
   indexMissingEpochsOnStartup: true # Check for missing epochs and export them after startup
   node:
     host: "localhost" # Address of the backend node
-    port: "4000" # GRPC port of the Prysm node
+    port: "3500" # GRPC port of the Prysm node
     type: "lighthouse" # can be either prysm or lighthouse
     pageSize: 100 # the amount of entries to fetch per paged rpc call, TODO set to 500
   eth1Endpoint: 'http://localhost:8545'
