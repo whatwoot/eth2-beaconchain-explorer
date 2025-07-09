@@ -1,14 +1,27 @@
 # Database credentials
-database:
+readerDatabase:
   user: "postgres"
   name: "db"
   host: "localhost"
   port: "5432"
   password: "pass"
+  maxOpenConns: 50
+  maxIdleConns: 10
+  ssl: false
+writerDatabase:
+  user: "postgres"
+  name: "db"
+  host: "localhost"
+  port: "5432"
+  password: "pass"
+  maxOpenConns: 50
+  maxIdleConns: 10
+  ssl: false
 # Chain network configuration
 chain:
-  configPath: ./config/mainnet.chain.yml
-  genesisTimestamp: 1639659600
+  name: "sepolia"
+  configPath: ./config/sepolia.chain.yml
+  genesisTimestamp: 1655733600
 # Note: It is possible to run either the frontend or the indexer or both at the same time
 # Frontend config
 frontend:
@@ -23,12 +36,24 @@ frontend:
   server:
     host: "0.0.0.0" # Address to listen on
     port: "3333" # Port to listen on
-  database:
+  readerDatabase:
     user: "postgres"
     name: "db"
     host: "localhost"
     port: "5432"
     password: "pass"
+    maxOpenConns: 50
+    maxIdleConns: 10
+    ssl: false
+  writerDatabase:
+    user: "postgres"
+    name: "db"
+    host: "localhost"
+    port: "5432"
+    password: "pass"
+    maxOpenConns: 50
+    maxIdleConns: 10
+    ssl: false
   # sessionSecret: "<sessionSecret>"
   # flashSecret: "" # Encryption secret for flash cookies
 # Indexer config
@@ -44,3 +69,22 @@ indexer:
   eth1Endpoint: 'http://localhost:8545'
   # Note: 0 is correct, but due to an underflow bug (being fixed), doesn't work.
   eth1DepositContractFirstBlock: 1
+  
+eth1ErigonEndpoint: 'http://localhost:8545'
+eth1GethEndpoint: 'http://localhost:8545'
+
+  # Bigtable configuration (using local emulator for development)
+bigtable:
+  project: "explorer"
+  instance: "explorer"
+  emulator: true
+  emulatorPort: 9000
+
+# Redis cache endpoint
+redisCacheEndpoint: "localhost:6379"
+
+# Session store endpoint  
+redisSessionStoreEndpoint: "localhost:6379"
+
+# Tiered cache provider
+tieredCacheProvider: "redis"
