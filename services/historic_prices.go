@@ -105,6 +105,13 @@ func updateHistoricPrices() error {
 }
 
 func fetchHistoricPrice(ts time.Time) (*types.HistoricEthPrice, error) {
+	// 检查时间戳，如果小于指定值则设置为最小时间戳
+	minTimestamp := int64(1723207072000) / 1000 // 转换毫秒为秒
+	minTime := time.Unix(minTimestamp, 0)
+	if ts.Before(minTime) {
+		ts = minTime
+	}
+
 	logger.Infof("fetching historic prices for day %v", ts)
 	client := &http.Client{Timeout: time.Second * 10}
 
